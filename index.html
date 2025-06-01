@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的个人网站</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>欢迎来到我的个人网站</h1>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="about.html">关于我</a>
+            <a href="share.html">每日分享</a>
+            <a href="message.html">留言板</a>
+            <a href="ads.html">广告展示</a>
+            <a href="links.html">友情链接</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>这里是主页内容区域</h2>
+        <p>欢迎访问我的个性化网站，这里将展示我的每日分享、个人介绍等内容。</p>
+    </main>
+
+    <footer>
+        <p>© 2025 我的个人网站</p>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>我的主页</title>
+  <style>
+    body {
+      font-family: "微软雅黑", sans-serif;
+      background: #f8f8f8;
+      padding: 40px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    .search-box {
+      margin-bottom: 30px;
+    }
+    .search-box input {
+      padding: 8px 12px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    .content-item {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px auto;
+      width: 80%;
+      background: #fff;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .content-item h3 {
+      margin: 0 0 10px;
+      color: #222;
+    }
+    .content-item small {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>欢迎来到我的主页</h1>
+
+  <div class="search-box">
+    <input type="text" id="titleInput" placeholder="输入标题关键词">
+    <input type="date" id="dateInput">
+    <button onclick="filterContent()">搜索</button>
+  </div>
+
+  <div id="contentList">
+    <!-- 示例内容项 -->
+    <div class="content-item" data-title="每日分享：海边日落" data-date="2025-05-20">
+      <h3>每日分享：海边日落</h3>
+      <small>发布日期：2025-05-20</small>
+      <p>今天傍晚我在海边拍下的美丽风景...</p>
+    </div>
+
+    <div class="content-item" data-title="摄影作品：街头艺术" data-date="2025-05-21">
+      <h3>摄影作品：街头艺术</h3>
+      <small>发布日期：2025-05-21</small>
+      <p>这张照片捕捉到了城市的文化氛围。</p>
+    </div>
+
+    <div class="content-item" data-title="视频分享：旅拍Vlog" data-date="2025-05-22">
+      <h3>视频分享：旅拍Vlog</h3>
+      <small>发布日期：2025-05-22</small>
+      <p>记录了我最近的一次旅行。</p>
+    </div>
+  </div>
+
+  <script>
+    function filterContent() {
+      const titleFilter = document.getElementById("titleInput").value.toLowerCase();
+      const dateFilter = document.getElementById("dateInput").value;
+
+      const items = document.querySelectorAll(".content-item");
+
+      items.forEach(item => {
+        const title = item.getAttribute("data-title").toLowerCase();
+        const date = item.getAttribute("data-date");
+
+        const matchTitle = title.includes(titleFilter);
+        const matchDate = !dateFilter || date === dateFilter;
+
+        item.style.display = (matchTitle && matchDate) ? "block" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>
